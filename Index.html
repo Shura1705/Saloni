@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Saloni 💖</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --pink: #ff4f9a;
+      --lightpink: #ffb3d9;
+      --rose: #ffd6e9;
+      --bg: radial-gradient(circle at top left, #ffe0f4 0%, #ffd6ec 40%, #ffc9e7 80%);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      overflow-x:hidden;
+      min-height:100vh;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      background: var(--pink);
+      transform: rotate(-45deg);
+      animation: float 10s linear infinite;
+      opacity: 0.5;
+      z-index: 0;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: var(--pink);
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: 10px; top: 0; }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(-45deg); opacity:0; }
+      10% { opacity:0.7; }
+      90% { opacity:0.7; }
+      100% { transform: translateY(-20vh) rotate(-45deg); opacity:0; }
+    }
+
+    /* Random positions */
+    .heart:nth-child(1) { left: 10%; animation-duration: 13s; }
+    .heart:nth-child(2) { left: 25%; animation-duration: 16s; }
+    .heart:nth-child(3) { left: 40%; animation-duration: 12s; }
+    .heart:nth-child(4) { left: 60%; animation-duration: 17s; }
+    .heart:nth-child(5) { left: 80%; animation-duration: 19s; }
+    .heart:nth-child(6) { left: 50%; animation-duration: 18s; }
+
+    /* NAV */
+    header {
+      position: fixed;
+      top:0;
+      width:100%;
+      padding:12px 20px;
+      background: rgba(255, 220, 240, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(255,80,150,0.25);
+      z-index:5;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo {
+      font-family: "Dancing Script";
+      font-size: 1.6rem;
+      color: var(--pink);
+    }
+
+    nav button {
+      background:white;
+      border:none;
+      padding:6px 14px;
+      border-radius: 30px;
+      color: var(--pink);
+      font-weight:600;
+      cursor:pointer;
+      margin-left:5px;
+      box-shadow: 0 4px 10px rgba(255,80,150,0.25);
+      transition:.2s;
+    }
+    nav button:hover {
+      transform: scale(1.05);
+      background:#ffe4f2;
+    }
+
+    /* Main */
+    main {
+      margin-top:90px;
+      padding:20px;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+      position:relative;
+      z-index:2;
+    }
+
+    .section {
+      background:white;
+      border-radius: 22px;
+      padding: 22px;
+      margin-bottom: 26px;
+      box-shadow:0 12px 25px rgba(255,120,170,0.25);
+      border:1px solid #ffd0e8;
+      animation: fadeUp .8s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    .title {
+      font-family:"Dancing Script";
+      font-size:2rem;
+      color:var(--pink);
+      margin-bottom:10px;
+    }
+
+    .text { font-size:1rem; line-height:1.6; }
+
+    .shayari {
+      white-space: pre-line;
+      font-size:1.1rem;
+      line-height:1.7;
+      color:#444;
+    }
+
+    .signature {
+      margin-top:15px;
+      text-align:right;
+      font-style:italic;
+      color:#777;
+    }
+
+    /* Toast */
+    .toast {
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      background:white;
+      padding:10px 18px;
+      border-radius:40px;
+      box-shadow:0 6px 20px rgba(255,80,150,0.3);
+      opacity:0;
+      pointer-events:none;
+      transition:.3s;
+      font-size:.9rem;
+      border:1px solid #ffcdea;
+      z-index:10;
+    }
+    .toast.show {
+      opacity:1;
+      pointer-events:auto;
+      transform:translateX(-50%) translateY(-6px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- floating hearts -->
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+
+  <!-- toast -->
+  <div id="toast" class="toast">🎉 Happy Birthday, Saloni! 💖</div>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo">♡ For Saloni</div>
+    <nav>
+      <button data-go="s1">Shayari 💌</button>
+      <button data-go="s2">Birthday Wish 🎂</button>
+      <button data-go="s3">Personal Note 🌙</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Section 1 -->
+    <section id="s1" class="section">
+      <h2 class="title">Romantic Shayari For You 💌</h2>
+      <p class="shayari">
+तेरी मुस्कान में छुपी है एक मीठी सी रोशनी,  
+जो दिल को छूकर सीधा रूह तक उतर जाती है… 💖  
+
+तेरे होने से महफूज़ सा लगता है हर मौसम,  
+जैसे ज़िन्दगी खुद तुझमें कोई दुआ छुपा के लाई हो… 🌸✨  
+
+Saloni, तू रहे हमेशा खुश, हँसती खिलखिलाती,  
+क्योंकि तुझे देख कर ही तो दिल हर दिन नया लग जाता है। ❤️
+      </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="s2" class="section">
+      <h2 class="title">My Birthday Wish For You 🎂💖</h2>
+      <p class="text">
+        Dear <b>Saloni</b>,  
+        You are the kind of soft magic that makes the world feel lighter.  
+        Your smile has a way of turning ordinary moments into memories,  
+        and your presence brings a calm beauty even on loud days. 🌸  
+      </p>
+      <p class="text">
+        I wish you gentle mornings, peaceful nights, warm people,  
+        and a life filled with the kind of love that never makes you doubt your worth.  
+        You deserve happiness that chooses you every single day. ✨  
+      </p>
+      <p class="text">
+        Today is your day — the day an angel like you came into this world.  
+        I’m glad destiny let our lives cross…  
+        and I genuinely hope this bond stays, grows and glows. 🫶💕  
+      </p>
+      <div class="signature">– With all my warm wishes for you 💗</div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="s3" class="section">
+      <h2 class="title">A Personal Note Just For You 🌙💕</h2>
+      <p class="text">
+        Saloni,  
+        sach kahu toh tu un logon me se hai  
+        jinke naam se hi dil halka, safe aur soft feel karta hai.  
+        Tujhme ek calm energy hai… jo bahut rare hoti hai. 💗  
+      </p>
+      <p class="text">
+        Main chahta hoon ki tu kabhi bhi apne aap ko kam na samjhe,  
+        kyunki tu jitni pyari, jitni pure hai —  
+        uska koi second version dunia me nahi hai.  
+      </p>
+      <p class="text">
+        Agar kabhi life heavy lage, ya mood down ho,  
+        bas yaad rakhna ki koi hai jo  
+        bina bole bhi tera khayal rakhta hai…  
+        aur dil se dua karta hai ki tere saath sirf accha hi ho. 🌸  
+      </p>
+      <div class="signature">– Someone who cares for you more than you know 💗</div>
+    </section>
+
+  </main>
+
+  <script>
+    // Toast popup
+    window.onload = () => {
+      const t = document.getElementById("toast");
+      setTimeout(() => t.classList.add("show"), 800);
+      setTimeout(() => t.classList.remove("show"), 6000);
+    };
+
+    // Smooth scroll
+    document.querySelectorAll("nav button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-go");
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
+</body>
+</html>
